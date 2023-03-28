@@ -1,11 +1,14 @@
 name: Python application test with Github Actions
 on: 
+  push:
+    branches: [ test1,test2,main]
   pull_request:
     branches: [ test1,test2,main ]
- 
+    types: [ opened, synchronize ]
+  fork:
+    branches: [ test1,test2,main ]
 jobs:
   build:
-    if: github.event.action == 'closed' && github.event.pull_request.merged == true && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2

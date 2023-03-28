@@ -1,8 +1,9 @@
+#necessary libraries
 import tensorflow as tf
 from tensorflow import keras
 import matplotlib.pyplot as plt
 import numpy as np
-
+#flatennin the layer
 X_train_flattened = X_train.reshape(len(X_train), 28*28)
 X_test_flattened = X_test.reshape(len(X_test), 28*28)
 

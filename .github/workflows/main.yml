@@ -1,0 +1,27 @@
+name: Python application test with Github Actions
+on: 
+  push:
+    branches: [ test1,test2,main]
+  pull_request:
+    branches: [ test1,test2,main ]
+    types: [ opened, synchronize ]
+  fork:
+    branches: [ test1,test2,main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.10.10
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.10.10
+    - name: Install dependencies
+      run: |
+        make install
+    - name: Black Formatter
+      run: |
+        make format
+    - name: Lint
+      run: |
+        make lint

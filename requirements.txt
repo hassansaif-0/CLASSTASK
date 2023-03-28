@@ -1,0 +1,7 @@
+black
+tensorflow
+matplotlib
+numpy
+pylint
+pytest
+pytest-cov
